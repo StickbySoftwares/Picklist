@@ -1,0 +1,38 @@
+{
+  "vars": {},
+  "css": [
+    "grid.less",
+    "tables.less",
+    "forms.less",
+    "buttons.less",
+    "button-groups.less",
+    "input-groups.less",
+    "pagination.less",
+    "pager.less",
+    "labels.less",
+    "badges.less",
+    "alerts.less",
+    "list-group.less",
+    "panels.less",
+    "close.less",
+    "popovers.less",
+    "modals.less",
+    "utilities.less",
+    "responsive-utilities.less",
+    "component-animations.less"
+  ],
+  "js": [
+    "alert.js",
+    "button.js",
+    "carousel.js",
+    "dropdown.js",
+    "modal.js",
+    "tooltip.js",
+    "popover.js",
+    "tab.js",
+    "affix.js",
+    "collapse.js",
+    "scrollspy.js",
+    "transition.js"
+  ]
+}
