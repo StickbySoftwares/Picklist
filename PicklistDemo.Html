@@ -1,5 +1,40 @@
 <html>
-<head></head>
-<body>
-</body>
+<script src="Scripts/jquery-1.8.2.min.js"></script>
+
+
+<input type="text" id="searchID"/>
+<input type="button" value="PickList" onclick="javascript: getPickList();" />
+<input type="text" id="searchDescription" disabled="disabled"/>
+<div id="divGrid" style="display: none">
+    <table>
+        <thead>
+           <tr> <th>Id</th>
+            <th>Desciption</th></tr>
+        </thead>
+        <tbody id="picklist">
+        </tbody>
+    </table>
+</div>
 </html>
+<script type="text/javascript" >
+    
+    function getPickList() {
+        var data  = [{ID: 1, SrNo : 123 },{ID: 2,  SrNo: 456 }];
+        $('#picklist').html('');
+        for (i = 0; i < data.length ; i++) {
+            var tr = '<tr class="ID" > ';
+            tr += '<td><a href="#" onclick="javascript: appendData(this); "><span class="ID">' + data[i].ID + '</span></a></td>';
+            tr += '<td><span class="SrNo">' + data[i].SrNo + '</span></td>';
+            tr += '</tr>';
+            //console.log(tr);
+            $('#picklist').append(tr);
+            $('#divGrid').show();
+        }
+    }
+    function appendData(obj ) {
+        $('#searchID').val(($(obj).find('span').text()));
+        $('#searchDescription').val($(obj).parent().parent().find('span[class*="SrNo"]').text());
+    }
+
+</script>
+
