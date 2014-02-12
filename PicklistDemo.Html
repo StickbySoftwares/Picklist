@@ -1,4 +1,5 @@
 <html>
+<<<<<<< HEAD
 <script src="Scripts/jquery-1.8.2.min.js"></script>
 <link rel="stylesheet" type="text/css" href="Styles\bootstrap\css\bootstrap.min.css">
 <div class="form-inline">
@@ -23,25 +24,95 @@
     </table>
 	</div>
 </div>
+=======
+<head>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="Styles\bootstrap\css\bootstrap.min.css">   
+    <script src="Styles\bootstrap\js/bootstrap.js"></script>
+</head>
+<body>
+
+    <!-- Button trigger modal -->
+
+
+    <div class="form-inline">
+        <div class="form-group">
+            <input type="text" class="form-control" id="searchID" />
+        </div>
+      
+        <input type="button" value="PickList" data-toggle="modal" data-target="#myModal" class="btn btn-default" onclick="javascript: getPickList();" />
+        <div class="form-group">
+            <input type="text" class="form-control" id="searchDescription" disabled="disabled" />
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Select Any One</h4>
+                </div>
+                <div id="divGrid" class="modal-body">
+                    <form class="form-inline" role="form">
+                        <div class="form-group">
+                            <label class="sr-only" for="exampleInputEmail2">Search</label>
+                            <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Search key">
+                        </div>
+                       
+                        <button type="submit"  class="btn btn-info">Search</button>
+                    </form>
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Desciption</th>
+                            </tr>
+                        </thead>
+                        <tbody id="picklist">
+                        </tbody>
+                    </table>
+                    <ul class="pagination">
+                        <li><a href="#">&laquo;</a></li>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#">&raquo;</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+</body>
+>>>>>>> 24d61e65f8520580506c6959e339a517b89ee2fa
 </html>
-<script type="text/javascript" >
-    
+<script type="text/javascript">
+
     function getPickList() {
-        var data  = [{ID: 1, SrNo : 123 },{ID: 2,  SrNo: 456 }];
+       
+        var data = [{ ID: 1, SrNo: 123 }, { ID: 2, SrNo: 456 }, { ID: 3, SrNo: 789 }, { ID: 4, SrNo: 91011 }, { ID: 5, SrNo: 121314 }];
         $('#picklist').html('');
         for (i = 0; i < data.length ; i++) {
             var tr = '<tr class="ID" > ';
-            tr += '<td><a href="#" onclick="javascript: appendData(this); "><span class="ID">' + data[i].ID + '</span></a></td>';
+            tr += '<td><a data-dismiss="modal" href="#" onclick="javascript: appendData(this); "><span class="ID">' + data[i].ID + '</span></a></td>';
             tr += '<td><span class="SrNo">' + data[i].SrNo + '</span></td>';
             tr += '</tr>';
-            //console.log(tr);
             $('#picklist').append(tr);
-            $('#divGrid').show();
+            $('divGrid').show();
         }
     }
-    function appendData(obj ) {
+    function appendData(obj) {
         $('#searchID').val(($(obj).find('span').text()));
         $('#searchDescription').val($(obj).parent().parent().find('span[class*="SrNo"]').text());
+
     }
 
 </script>
