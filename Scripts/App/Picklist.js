@@ -7,7 +7,7 @@ var PickList=(function(){
     };
 	var getPickList=function () {
        
-        var data = [{ ID: 1, SrNo: 123 }, { ID: 2, SrNo: 456 }, { ID: 3, SrNo: 789 }, { ID: 4, SrNo: 91011 }, { ID: 5, SrNo: 121314 }];
+        var data = DataService.getData();
         $('#picklist').html('');
         for (i = 0; i < data.length ; i++) {
             var tr = '<tr class="ID" > ';
